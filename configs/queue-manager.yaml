@@ -17,3 +17,5 @@ spec:
     availability:
       type: NativeHA
   version: 9.2.3.0-r1
+  web:
+    enabled: true
