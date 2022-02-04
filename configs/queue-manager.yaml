@@ -5,7 +5,7 @@ metadata:
 spec:
   license:
     accept: true
-    license: L-RJON-BZFQU2
+    license: L-APIG-BZDDDY
     use: Production
   queueManager:
     mqsc:
