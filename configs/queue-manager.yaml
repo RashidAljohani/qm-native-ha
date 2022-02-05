@@ -25,9 +25,9 @@ spec:
         name: mqsc-setting
     resources:
       limits:
-        cpu: 500m
+        cpu: 300m
       requests:
-        cpu: 500m
+        cpu: 100m
     name: MVP_QUICKSTART
     availability:
       type: NativeHA
