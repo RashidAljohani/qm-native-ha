@@ -5,7 +5,7 @@ metadata:
 spec:
   license:
     accept: true
-    license: L-APIG-BZDDDY
+    license: L-RJON-BUVMQX
     use: Production
   queueManager:
     mqsc:
@@ -19,3 +19,19 @@ spec:
   version: 9.2.3.0-r1
   web:
     enabled: true
+  storage:
+      defaultClass: ocs-storagecluster-ceph-rbd
+      persistedData:
+        class: ocs-storagecluster-ceph-rbd
+        enabled: true
+        size: 2Gi
+        type: persistent-claim
+      queueManager:
+        class: ocs-storagecluster-ceph-rbd
+        size: 2Gi
+        type: persistent-claim
+      recoveryLogs:
+        class: ocs-storagecluster-ceph-rbd
+        enabled: true
+        size: 2Gi
+        type: persistent-claim
