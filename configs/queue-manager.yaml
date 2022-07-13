@@ -1,7 +1,10 @@
 apiVersion: mq.ibm.com/v1beta1
 kind: QueueManager
 metadata:
-  name: qm-mvp
+  name: qm-lite
+  labels:
+    app: new-orders-service
+    environment: mvp
 spec:
   license:
     accept: true
@@ -28,7 +31,7 @@ spec:
         cpu: 300m
       requests:
         cpu: 100m
-    name: MVP_QUICKSTART
+    name: QM1
     availability:
       type: NativeHA
     storage:
