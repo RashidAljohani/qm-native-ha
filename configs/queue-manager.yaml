@@ -1,7 +1,7 @@
 apiVersion: mq.ibm.com/v1beta1
 kind: QueueManager
 metadata:
-  name: qm-lite
+  name: qm1
   labels:
     app: new-orders-service
     environment: mvp
@@ -12,7 +12,7 @@ spec:
     use: NonProduction
   web:
     enabled: true
-  version: 9.3.0.0-r1
+  version: 9.3.2.0-r1
   template:
     pod:
       containers:
