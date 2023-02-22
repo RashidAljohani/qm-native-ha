@@ -8,7 +8,7 @@ metadata:
 spec:
   license:
     accept: true
-    license: L-RJON-CJR2RX
+    license: L-APIG-CAUEQC
     use: NonProduction
   web:
     enabled: true
