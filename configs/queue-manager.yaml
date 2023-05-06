@@ -12,7 +12,7 @@ spec:
     use: Development
   web:
     enabled: true
-  version: 9.3.2.0-r1
+  version: 9.3.2.1-r1
   template:
     pod:
       containers:
@@ -24,7 +24,7 @@ spec:
     mqsc:
     - configMap:
         items:
-        - qminit.mqsc
+        - qm.mqsc
         name: mqsc-setting
     resources:
       limits:
