@@ -1,30 +1,17 @@
 apiVersion: mq.ibm.com/v1beta1
 kind: QueueManager
 metadata:
-  name: qm2
-  labels:
-    app: new-orders-service
-    environment: mvp
+  annotations:
+    com.ibm.mq/write-defaults-spec: 'false'
+  name: qm1
+  namespace: fab-mq-demo
 spec:
   license:
     accept: true
-    license: L-RJON-CJR2RX
+    license: L-QYVA-B365MB
     use: NonProduction
-  web:
-    enabled: true
-  telemetry:
-    tracing:
-      instana:
-        enabled: true
-  version: 9.3.2.1-r1
-  template:
-    pod:
-      containers:
-        - env:
-            - name: MQSNOAUT
-              value: 'yes'
-          name: qmgr
   queueManager:
+    name: QM1
     mqsc:
     - configMap:
         items:
@@ -32,25 +19,20 @@ spec:
         name: mqsc-setting
     resources:
       limits:
-        cpu: 300m
+        cpu: 500m
       requests:
-        cpu: 100m
-    name: QM1
+        cpu: 500m
+    storage:
+      queueManager:
+        type: persistent-claim
+      defaultClass: ocs-storagecluster-ceph-rbd
     availability:
       type: NativeHA
-    storage:
-      defaultClass: ibmc-block-gold
-      persistedData:
-        class: ibmc-block-gold
-        enabled: true
-        size: 1Gi
-        type: persistent-claim
-      queueManager:
-        class: ibmc-block-gold
-        size: 1Gi
-        type: persistent-claim
-      recoveryLogs:
-        class: ibmc-block-gold
-        enabled: true
-        size: 1Gi
-        type: persistent-claim
+  version: 9.4.2.0-r1
+  web:
+    console:
+      authentication:
+        provider: integration-keycloak
+      authorization:
+        provider: integration-keycloak
+    enabled: true
